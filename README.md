@@ -1,5 +1,7 @@
 # blackwell
 
+This repo is a scratchpad and collection of misc stuff, don't expect to learn anything skimming this
+
 # profiling notes
 
 https://github.com/chenyu-jiang/nsys2json
@@ -23,3 +25,12 @@ nsys profile -t cuda,nvtx,osrt \
 ```
 
 Generates a -rep file and can get bw numbers using `nsys stats bw.nsys-rep --report gpu_metric_sum`
+
+You can collect experimental metrics in pytorch using- the full pattern is in `cup.py`
+
+```
+exp = _ExperimentalConfig(
+    profiler_metrics=["dram__bytes_read.sum", "dram__bytes_write.sum"],
+    profiler_measure_per_kernel=True,
+)
+```
